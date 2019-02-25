@@ -1,0 +1,21 @@
+@import url('/common/css/color.css');
+@import url('/components/itemsToDo/css/itemsToDo.css');
+@import url('/components/itemToDo/css/itemToDo.css');
+
+html {
+  background: var(--divided-color);
+}
+
+body {
+  padding: 10px;
+  margin: 0;
+}
+
+.page-conteiner {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
