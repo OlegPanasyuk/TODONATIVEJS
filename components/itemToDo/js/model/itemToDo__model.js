@@ -1,9 +1,18 @@
 class itemToDo__model extends EventEmmiter {
-  constructor(text, date, dead_date) {
+  constructor(text, title, date, dead_date) {
     super();
+    this._title = title || 'Item Title';
     this._text = text || 'New ToDo item';
     this._date = (date) ? date : new Date();
     this._dead_date = (dead_date) ? dead_date : new Date();
+  }
+
+  getTitle() {
+    return this._title;
+  }
+
+  setTitle(title) {
+    this._title = title;
   }
 
   getText() {

@@ -1,6 +1,7 @@
 @import url('/common/css/color.css');
 @import url('/components/itemsToDo/css/itemsToDo.css');
 @import url('/components/itemToDo/css/itemToDo.css');
+@import url('/components/button/css/button.css');
 
 html {
   background: var(--divided-color);

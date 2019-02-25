@@ -1,0 +1,8 @@
+.button {
+  border-radius: 5px;
+}
+
+.button_accent {
+  background: var(--accent-color);
+  color: var(--icons-color);
+}
