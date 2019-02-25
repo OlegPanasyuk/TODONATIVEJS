@@ -3,7 +3,12 @@ class itemToDo__controller extends EventEmmiter {
     super();
     this._view = view;
     this._model = model;
+    view.on('clickButtonChange', () => {
+      this.changeItem();
+    })
   }
 
-  
+  changeItem() {
+    
+  }
 }
