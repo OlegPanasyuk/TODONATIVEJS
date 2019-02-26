@@ -9,6 +9,7 @@ class itemToDo__controller extends EventEmmiter {
   }
 
   changeItem() {
-    
+    let view = this._view;
+    view.emit('changeModeActive');
   }
 }
