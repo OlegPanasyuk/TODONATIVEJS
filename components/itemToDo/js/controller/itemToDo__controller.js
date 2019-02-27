@@ -6,6 +6,20 @@ class itemToDo__controller extends EventEmmiter {
     view.on('clickButtonChange', () => {
       this.changeItem();
     })
+
+    view.on('saveChanges', (form) => {
+      let model = this._model;
+      let view = this._view;
+      let title = form.title.value;
+      let text = form.text.value;
+      let date = form.dateInput.value;
+      let deadLine = form.deadLine.value;
+
+      model.setTitle(title);
+      model.setText(text);
+      
+      view.emit('rebuild');
+    });
   }
 
   changeItem() {

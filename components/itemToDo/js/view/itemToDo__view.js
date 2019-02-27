@@ -18,9 +18,11 @@ class itemToDo__view extends EventEmmiter {
     let title = document.createElement('input');
     let text = document.createElement('textarea');
     let deadLine = document.createElement('input');
+    let dateDeadLine = this._model.getDeadLine();
     let labelDeadLine = document.createElement('label');
     let labelDate = document.createElement('label');
     let dateInput = document.createElement('input');
+    let dateCreat = this._model.getDate();
     let cancleButton = document.createElement('button');
     let okButton = document.createElement('button');
     
@@ -34,12 +36,29 @@ class itemToDo__view extends EventEmmiter {
     okButton.classList.add('button');
     okButton.classList.add('button_accent');
     okButton.innerHTML = 'SAVE';
+    okButton.addEventListener('click', ()=> {
+      // alert('rebuild');
+      // this.emit('rebuild');
+      this.emit('saveChanges', form);
+    })
 
     deadLine.setAttribute('type', 'date');
+    deadLine.setAttribute('name', 'deadLine');
+    deadLine.value = `${dateDeadLine.getFullYear()}-${(dateDeadLine.getMonth()<9) ? '0' +(dateDeadLine.getMonth()+1):dateDeadLine.getMonth()+1}-${(dateDeadLine.getDate()<=9) ? '0' + dateDeadLine.getDate() : dateDeadLine.getDate() }`;
+
     dateInput.setAttribute('type', 'date');
+    dateInput.setAttribute('name', 'dateInput');
+    dateInput.value = `${dateCreat.getFullYear()}-${(dateCreat.getMonth()<9) ? '0' +(dateCreat.getMonth()+1):dateCreat.getMonth()+1}-${(dateCreat.getDate()<=9) ? '0' + dateCreat.getDate() : dateCreat.getDate() }`;
+    dateInput.addEventListener('change', (e)=>{
+      console.log(e.target.value);
+    });
 
     text.value = `${this._model.getText()}`;
+    text.setAttribute('name', 'text');
+
     title.value = `${this._model.getTitle()}`;
+    title.setAttribute('name', 'title');
+
     labelDate.innerHTML = 'Date of creation: '
     labelDeadLine.innerHTML = 'Date of DEADLINE: ';
 
@@ -47,8 +66,9 @@ class itemToDo__view extends EventEmmiter {
     labelDeadLine.appendChild(deadLine);
 
 
-    main_div.innerHTML = '';
+    
     form.setAttribute('onsubmit', 'return false;');
+    form.classList.add('itemToDo__form-change');
 
     form.appendChild(title);
     form.appendChild(text);
@@ -57,6 +77,7 @@ class itemToDo__view extends EventEmmiter {
     form.appendChild(okButton);
     form.appendChild(cancleButton);
 
+    main_div.innerHTML = '';
     main_div.appendChild(form);
   }
 
@@ -80,7 +101,7 @@ class itemToDo__view extends EventEmmiter {
 
     date_conteiner.innerHTML = `Date of creation: ${date.getFullYear()}-${date.getMonth()+1}-${date.getDate()}`;
     date_conteiner.classList.add('itemToDo__date');
-    deadLine.innerHTML = `Date of creation: ${deadLineDate.getFullYear()}-${deadLineDate.getMonth()+1}-${deadLineDate.getDate()}`;
+    deadLine.innerHTML = `Date of DeadLine: ${deadLineDate.getFullYear()}-${deadLineDate.getMonth()+1}-${deadLineDate.getDate()}`;
     deadLine.classList.add('itemToDo__deadline');
     buttonChange.innerHTML = 'Change';
     buttonChange.classList.add('button');
