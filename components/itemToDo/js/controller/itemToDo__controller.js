@@ -17,7 +17,9 @@ class itemToDo__controller extends EventEmmiter {
 
       model.setTitle(title);
       model.setText(text);
-      
+      model.setDate(new Date(date));
+      model.setDeadLine(new Date(deadLine));      
+
       view.emit('rebuild');
     });
   }

@@ -1,5 +1,6 @@
 .itemToDo {
   display: flex;
+  font-family: 'Roboto', sans-serif;
   flex-direction: column;
   background: var(--icons-color);
   padding : 10px;
@@ -8,15 +9,33 @@
   border-radius: 5px;
   margin-bottom: 10px;
   box-shadow: 3px 3px 10px 0px rgba(100,100,100, 0.6);
+  color: var(--primary-text);
+}
+
+.itemToDo__title {
+  font-weight: 700;
+  font-size: 1.75em;
+  margin: 0;
+}
+
+.itemToDo__form-change input,  .itemToDo__form-change textarea{
+  font-family: 'Roboto', sans-serif;
+  border: none;
+}
+
+.itemToDo__form-change textarea {
+  font-size: 1em;
+  margin: 16px 0;
 }
 
 .itemToDo__date {
   display: block;
+  color:  var(--secondary-text);
 }
 
 .itemToDo__deadline {
   display: block;
-  color: red;
+  color: var(--accent-color);
 }
 
 .itemToDo__button {

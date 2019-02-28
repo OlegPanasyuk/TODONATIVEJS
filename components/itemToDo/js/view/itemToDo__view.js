@@ -57,6 +57,7 @@ class itemToDo__view extends EventEmmiter {
     text.setAttribute('name', 'text');
 
     title.value = `${this._model.getTitle()}`;
+    title.classList.add('itemToDo__title');
     title.setAttribute('name', 'title');
 
     labelDate.innerHTML = 'Date of creation: '
@@ -65,8 +66,6 @@ class itemToDo__view extends EventEmmiter {
     labelDate.appendChild(dateInput);
     labelDeadLine.appendChild(deadLine);
 
-
-    
     form.setAttribute('onsubmit', 'return false;');
     form.classList.add('itemToDo__form-change');
 
